@@ -1,0 +1,54 @@
+{
+  "workflowId": "symphony-linear-kanban-bridge-demo",
+  "runId": "example-unmapped-kanban-endpoint-001",
+  "generatedAt": "2026-06-28T12:10:00.000Z",
+  "completedAt": "2026-06-28T12:10:01.000Z",
+  "scope": {
+    "tracker": "linear",
+    "selector": "demo_project",
+    "kanbanBoard": "demo-linear",
+    "live": false
+  },
+  "nodeMappings": [
+    {
+      "linearIssue": {
+        "id": "lin_impl",
+        "identifier": "DEMO-102",
+        "stateName": "Todo"
+      },
+      "kanbanTask": {
+        "id": "t_impl",
+        "status": "blocked"
+      }
+    }
+  ],
+  "endpointPolicyHints": [
+    {
+      "endpoint": {
+        "kind": "kanban_task",
+        "task": {
+          "id": "t_research",
+          "status": "blocked"
+        }
+      },
+      "scopeVisibility": "outside_scope",
+      "materializationStatus": "external",
+      "reason": "kanban_edge_endpoint_missing_linear_mapping"
+    }
+  ],
+  "linearRelations": [],
+  "kanbanEdges": [
+    {
+      "parentTaskId": "t_research",
+      "childTaskId": "t_impl",
+      "kind": "blocks",
+      "blocking": true,
+      "requiredParentStatuses": ["done"],
+      "source": "symphony-graph-sync-example",
+      "createdBy": "symphony-graph-sync-example",
+      "metadata": {
+        "example": "unmapped-kanban-endpoint"
+      }
+    }
+  ]
+}

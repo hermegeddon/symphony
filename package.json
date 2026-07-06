@@ -1,0 +1,83 @@
+{
+  "name": "@hermegeddon/symphony-ts",
+  "version": "0.1.0",
+  "description": "Local-first TypeScript implementation of the OpenAI Symphony service specification.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hermegeddon/symphony.git"
+  },
+  "homepage": "https://github.com/hermegeddon/symphony#readme",
+  "bugs": {
+    "url": "https://github.com/hermegeddon/symphony/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/src/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist/src/**/*",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "examples/**/*"
+  ],
+  "sideEffects": false,
+  "bin": {
+    "symphony-fake-check": "dist/src/cli/fake-check.js",
+    "symphony-kanban-canary": "dist/src/cli/kanban-canary.js",
+    "symphony-codex-issue-run-confirm": "dist/src/cli/codex-issue-run-confirm.js",
+    "symphony-codex-issue-run": "dist/src/cli/codex-issue-run.js",
+    "symphony-codex-promote-patch": "dist/src/cli/codex-promote-patch.js",
+    "symphony-linear-kanban-bridge": "dist/src/cli/linear-kanban-bridge.js",
+    "symphony-linear-kanban-graph-sync-tick": "dist/src/cli/linear-kanban-graph-sync-tick.js",
+    "symphony-graph-sync-diff": "dist/src/cli/graph-sync-readonly-diff.js",
+    "symphony-graph-sync-snapshot": "dist/src/cli/graph-sync-snapshot.js",
+    "symphony-graph-sync-status": "dist/src/cli/graph-sync-status.js",
+    "symphony-graph-sync-materialize-kanban": "dist/src/cli/graph-sync-materialize-kanban.js",
+    "symphony-graph-sync-materialize-linear": "dist/src/cli/graph-sync-materialize-linear.js",
+    "symphony-service": "dist/src/cli/service.js"
+  },
+  "packageManager": "npm@11.11.0",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint . --max-warnings=0",
+    "check": "npm run typecheck && npm run lint && npm run build && npm test",
+    "prepack": "npm run build",
+    "smoke:local": "node dist/src/cli/smoke-local.js",
+    "demo:fake": "node dist/src/cli/fake-check.js",
+    "symphony:fake-check": "node dist/src/cli/fake-check.js"
+  },
+  "keywords": [
+    "symphony",
+    "coding-agents",
+    "orchestration"
+  ],
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^24.10.1",
+    "eslint": "^9.39.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.4",
+    "vitest": "^4.0.13"
+  },
+  "dependencies": {
+    "liquidjs": "^10.27.0",
+    "yaml": "^2.9.0"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "workflowId": "symphony-linear-kanban-bridge-demo",
+  "runId": "example-missing-kanban-edge-001",
+  "generatedAt": "2026-06-28T12:05:00.000Z",
+  "completedAt": "2026-06-28T12:05:01.000Z",
+  "scope": {
+    "tracker": "linear",
+    "selector": "demo_project",
+    "kanbanBoard": "demo-linear",
+    "live": false
+  },
+  "nodeMappings": [
+    {
+      "linearIssue": {
+        "id": "lin_design",
+        "identifier": "DEMO-101",
+        "stateName": "Done"
+      },
+      "kanbanTask": {
+        "id": "t_design",
+        "status": "done"
+      }
+    },
+    {
+      "linearIssue": {
+        "id": "lin_impl",
+        "identifier": "DEMO-102",
+        "stateName": "Todo"
+      },
+      "kanbanTask": {
+        "id": "t_impl",
+        "status": "blocked"
+      }
+    }
+  ],
+  "linearRelations": [
+    {
+      "relation": {
+        "id": "rel_design_blocks_impl",
+        "type": "blocks",
+        "issue": {
+          "id": "lin_design",
+          "identifier": "DEMO-101",
+          "stateName": "Done"
+        },
+        "relatedIssue": {
+          "id": "lin_impl",
+          "identifier": "DEMO-102",
+          "stateName": "Todo"
+        },
+        "createdAt": "2026-06-28T11:50:00.000Z",
+        "updatedAt": "2026-06-28T11:55:00.000Z",
+        "archivedAt": null
+      },
+      "observedFrom": "relations"
+    }
+  ],
+  "kanbanEdges": []
+}

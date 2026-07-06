@@ -1,0 +1,17 @@
+node_modules/
+dist/
+coverage/
+.worktrees/
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+
+# Private operational artifacts — must not be published
+.hermes/plans/
+artifacts/
+review-artifacts/
+governance-readiness-report.md
+g3-design-*.md
+g3-review-*.md
+f-review-*.md
